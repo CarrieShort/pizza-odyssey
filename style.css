@@ -2,6 +2,10 @@
 @import url(https://fonts.googleapis.com/css?family=Orbitron:400,500,700,900|Droid+Sans:400,700);
 
 /* Grid Layout */
+.column {
+  width: 100%;
+}
+
 .column-2 {
   width: 48%;
   float: left;
