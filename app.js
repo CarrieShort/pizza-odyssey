@@ -288,7 +288,7 @@ var ravennaTotal = ravennaData.listify('ravenna');
 // console.log('Ravenna total ' + ravennaTotal);
 
 // Generate Lists for each data set
-var pizzaOdysseys = ballardTotal + firstHillTotal + internationalDistTotal + sluTotal + georgetownTotal + ravennaTotal;
+var pizzaOdysseys = (ballardTotal + firstHillTotal + internationalDistTotal + sluTotal + georgetownTotal + ravennaTotal) * 6;
 var odysseyLocation = document.getElementById('odysseys');
 
 if (odysseyLocation) {
