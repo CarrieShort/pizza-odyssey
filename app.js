@@ -78,7 +78,7 @@ function calcDrivers(deliveries) {
   } else {
     var drivers = Math.floor(deliveries/3) + 1
   }
-  return driversMsg;
+  return drivers;
 }
 
 
