@@ -1,0 +1,97 @@
+/* Imports */
+@import url(https://fonts.googleapis.com/css?family=Orbitron:400,500,700,900|Droid+Sans:400,700);
+
+/* Grid Layout */
+.column-2 {
+  width: 48%;
+  float: left;
+}
+
+.column-2.left {
+  margin-right: 2%;
+}
+
+.column-2.right {
+  margin-left: 2%;
+}
+
+.clearfix {
+  clear: both;
+}
+
+/* General Styles */
+body {
+  background: #1F222B;
+  color: #ffffff;
+  font-family: "Droid Sans", sans-serif;
+}
+
+h1 {
+  font-family: "Orbitron", sans-serif;
+  font-style: italic;
+  text-align: center;
+  color: #000000;
+  text-shadow: 0 0 3px #1AD9DB;
+  font-size: 50px;
+}
+
+h2 {
+  font-family: "Orbitron", sans-serif;
+  color: #14CBDB;
+  background: #000000;
+  padding: 10px;
+}
+
+ul li {
+  padding: 5px;
+}
+
+/* Content */
+
+#content {
+  background: linear-gradient(to bottom, #e2e2e2 0%,#e2e2e2 47%,#d7e0e3 100%);
+  margin: 0 auto;;
+  width: 80%;
+  max-width: 1200px;
+  min-width: 300px;
+  color: #333333;
+  padding: 30px;
+}
+
+#highlight {
+  margin: 0;
+  background:#000000;
+  display: block;
+  text-align: center;
+  padding: 20px 5%;
+  border: 1px solid #14CBDB;
+  color: #ababab;
+}
+
+#odysseys {
+  font-size: 100px;
+  display: block;
+  color: #14CBDB;
+}
+
+#photo {
+  text-align: center;
+  padding: 130px 0;
+  border:1px solid #000000;
+}
+
+/* Media Queries */
+
+@media screen and (max-width:600px) {
+  .column-2 {
+    width: 100%;
+    margin: 0!important;
+  }
+
+}
+
+@media screen and (min-width:601px) and (max-width:900px) {
+  #odysseys {
+    font-size: 70px;
+  }
+}

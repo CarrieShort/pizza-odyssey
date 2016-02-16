@@ -48,10 +48,50 @@ var deliveries = example.generateRandom(example[x][3],example[x][4]);
 
 */
 
+// // Original Global Functions
+// function generateRandom(min,max) {
+//   return Math.floor(Math.random() * (max - min + 1)) + min;
+// }
+//
+// function calcDrivers(deliveries) {
+//   if (deliveries % 3 === 0) {
+//     var drivers = deliveries / 3;
+//   } else {
+//     var drivers = Math.floor(deliveries/3) + 1
+//   }
+//   if (drivers === 0) {
+//     var driverMsg = 'driver not recommended';
+//   } else {
+//     var driverMsg = 'drivers recommended: ' + drivers;
+//   };
+//   return driverMsg;
+// }
+//
+// function listify (objectVar, ulId) {
+//   // console.log(objectVar);
+//   // console.log(ulId);
+//   var listLocation = document.getElementById(ulId);
+//   var x;
+//   for (x in objectVar) {
+//     var hour = objectVar[x][0];
+//     var pizzas = generateRandom(objectVar[x][1],objectVar[x][2]);
+//     var numDeliveries = generateRandom(objectVar[x][3],objectVar[x][4]);
+//     var numDrivers = calcDrivers(numDeliveries);
+//     // console.log('the time is: ' + hour);
+//     // console.log('number of pizzas are: ' + pizzas);
+//     // console.log('number of deliveries are : ' + numDeliveries);
+//     // console.log('number of recomended drivers are :' + numDrivers);
+//     var liEl = document.createElement('li');
+//     liEl.textContent = hour + ' ' + pizzas + ' pizzas, ' + numDeliveries + ' deliveries -- [ ' + numDrivers + ' ]' ;
+//     listLocation.appendChild(liEl);
+//   }
+// };
+
 // Functions to be used in methods
 var generateRandomFunc = function(min,max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 };
+
 var calcDriversFunc = function(deliveries) {
   if (deliveries % 3 === 0) {
     var drivers = deliveries / 3;
@@ -65,6 +105,7 @@ var calcDriversFunc = function(deliveries) {
   };
   return driverMsg;
 };
+
 var listifyFunc = function(ulId) {
   var totalPizzas = 0;
   var listLocation = document.getElementById(ulId);
@@ -158,6 +199,7 @@ var internationalDistData = {
   calcDrivers: calcDriversFunc,
   listify: listifyFunc
 };
+
 var sluData = {
   t1: ['8:00am', 0, 4,0,4],
   t2: ['9:00am', 0, 4,0,4],
@@ -181,6 +223,7 @@ var sluData = {
   calcDrivers: calcDriversFunc,
   listify: listifyFunc
 };
+
 var georgetownData = {
   t1: ['8:00am', 0, 4,0,4],
   t2: ['9:00am', 0, 4,0,4],
@@ -204,6 +247,7 @@ var georgetownData = {
   calcDrivers: calcDriversFunc,
   listify: listifyFunc
 };
+
 var ravennaData = {
   t1: ['8:00am', 0, 4,0,4],
   t2: ['9:00am', 0, 4,0,4],
@@ -228,45 +272,6 @@ var ravennaData = {
   listify: listifyFunc
 };
 
-// // Functions
-// function generateRandom(min,max) {
-//   return Math.floor(Math.random() * (max - min + 1)) + min;
-// }
-//
-// function calcDrivers(deliveries) {
-//   if (deliveries % 3 === 0) {
-//     var drivers = deliveries / 3;
-//   } else {
-//     var drivers = Math.floor(deliveries/3) + 1
-//   }
-//   if (drivers === 0) {
-//     var driverMsg = 'driver not recommended';
-//   } else {
-//     var driverMsg = 'drivers recommended: ' + drivers;
-//   };
-//   return driverMsg;
-// }
-//
-// function listify (objectVar, ulId) {
-//   // console.log(objectVar);
-//   // console.log(ulId);
-//   var listLocation = document.getElementById(ulId);
-//   var x;
-//   for (x in objectVar) {
-//     var hour = objectVar[x][0];
-//     var pizzas = generateRandom(objectVar[x][1],objectVar[x][2]);
-//     var numDeliveries = generateRandom(objectVar[x][3],objectVar[x][4]);
-//     var numDrivers = calcDrivers(numDeliveries);
-//     // console.log('the time is: ' + hour);
-//     // console.log('number of pizzas are: ' + pizzas);
-//     // console.log('number of deliveries are : ' + numDeliveries);
-//     // console.log('number of recomended drivers are :' + numDrivers);
-//     var liEl = document.createElement('li');
-//     liEl.textContent = hour + ' ' + pizzas + ' pizzas, ' + numDeliveries + ' deliveries -- [ ' + numDrivers + ' ]' ;
-//     listLocation.appendChild(liEl);
-//   }
-// };
-
 // Generate Lists for each data set
 var ballardTotal = ballardData.listify('ballard');
 var firstHillTotal =firstHillData.listify('firsthill');
@@ -274,14 +279,18 @@ var internationalDistTotal = internationalDistData.listify('international-dist')
 var sluTotal = sluData.listify('slu');
 var georgetownTotal = georgetownData.listify('georgetown');
 var ravennaTotal = ravennaData.listify('ravenna');
-console.log('Ballard total ' + ballardTotal);
-console.log('First Hill total ' + firstHillTotal);
-console.log('The International District total ' + internationalDistTotal);
-console.log('South Lake Union total ' + sluTotal);
-console.log('Georgetown total ' + georgetownTotal);
-console.log('Ravenna total ' + ravennaTotal);
+
+// console.log('Ballard total ' + ballardTotal);
+// console.log('First Hill total ' + firstHillTotal);
+// console.log('The International District total ' + internationalDistTotal);
+// console.log('South Lake Union total ' + sluTotal);
+// console.log('Georgetown total ' + georgetownTotal);
+// console.log('Ravenna total ' + ravennaTotal);
+
+// Generate Lists for each data set
 var pizzaOdysseys = ballardTotal + firstHillTotal + internationalDistTotal + sluTotal + georgetownTotal + ravennaTotal;
 var odysseyLocation = document.getElementById('odysseys');
+
 if (odysseyLocation) {
   console.log('odyssey location true');
   odysseyLocation.textContent = pizzaOdysseys;
