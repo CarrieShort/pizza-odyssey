@@ -48,6 +48,7 @@ var deliveries = example.generateRandom(example[x][3],example[x][4]);
 
 */
 
+// Objects which store data by store
 var ballardData = {
   t1: ['8:00am', 0, 4,0,4],
   t2: ['9:00am', 0, 4,0,4],
@@ -67,11 +68,115 @@ var ballardData = {
   t16: ['11:00pm', 5, 20,6,11],
   t17: ['12 midnight', 5, 20,6,11],
   t18: ['1:00am', 5, 20,6,11]
-}
+};
 
+var firstHillData = {
+  t1: ['8:00am', 0, 4,0,4],
+  t2: ['9:00am', 0, 4,0,4],
+  t3: ['10:00am', 0, 4,0,4],
+  t4: ['11:00am', 0, 7,0,4],
+  t5: ['12 noon', 0, 7,0,4],
+  t6: ['1:00pm', 0, 7,0,4],
+  t7: ['2:00pm', 2, 15,1,4],
+  t8: ['3:00pm', 2, 15,1,4],
+  t9: ['4:00pm', 2, 15,1,4],
+  t10: ['5:00pm', 15, 35,3,8],
+  t11: ['6:00pm', 15, 35,3,8],
+  t12: ['7:00pm', 15, 35,3,8],
+  t13: ['8:00pm', 12, 31,5,12],
+  t14: ['9:00pm', 12, 31,5,12],
+  t15: ['10:00pm', 12, 31,5,12],
+  t16: ['11:00pm', 5, 20,6,11],
+  t17: ['12 midnight', 5, 20,6,11],
+  t18: ['1:00am', 5, 20,6,11]
+};
+
+var internationalDistData = {
+  t1: ['8:00am', 0, 4,0,4],
+  t2: ['9:00am', 0, 4,0,4],
+  t3: ['10:00am', 0, 4,0,4],
+  t4: ['11:00am', 0, 7,0,4],
+  t5: ['12 noon', 0, 7,0,4],
+  t6: ['1:00pm', 0, 7,0,4],
+  t7: ['2:00pm', 2, 15,1,4],
+  t8: ['3:00pm', 2, 15,1,4],
+  t9: ['4:00pm', 2, 15,1,4],
+  t10: ['5:00pm', 15, 35,3,8],
+  t11: ['6:00pm', 15, 35,3,8],
+  t12: ['7:00pm', 15, 35,3,8],
+  t13: ['8:00pm', 12, 31,5,12],
+  t14: ['9:00pm', 12, 31,5,12],
+  t15: ['10:00pm', 12, 31,5,12],
+  t16: ['11:00pm', 5, 20,6,11],
+  t17: ['12 midnight', 5, 20,6,11],
+  t18: ['1:00am', 5, 20,6,11]
+};
+var sluData = {
+  t1: ['8:00am', 0, 4,0,4],
+  t2: ['9:00am', 0, 4,0,4],
+  t3: ['10:00am', 0, 4,0,4],
+  t4: ['11:00am', 0, 7,0,4],
+  t5: ['12 noon', 0, 7,0,4],
+  t6: ['1:00pm', 0, 7,0,4],
+  t7: ['2:00pm', 2, 15,1,4],
+  t8: ['3:00pm', 2, 15,1,4],
+  t9: ['4:00pm', 2, 15,1,4],
+  t10: ['5:00pm', 15, 35,3,8],
+  t11: ['6:00pm', 15, 35,3,8],
+  t12: ['7:00pm', 15, 35,3,8],
+  t13: ['8:00pm', 12, 31,5,12],
+  t14: ['9:00pm', 12, 31,5,12],
+  t15: ['10:00pm', 12, 31,5,12],
+  t16: ['11:00pm', 5, 20,6,11],
+  t17: ['12 midnight', 5, 20,6,11],
+  t18: ['1:00am', 5, 20,6,11]
+};
+var georgetownData = {
+  t1: ['8:00am', 0, 4,0,4],
+  t2: ['9:00am', 0, 4,0,4],
+  t3: ['10:00am', 0, 4,0,4],
+  t4: ['11:00am', 0, 7,0,4],
+  t5: ['12 noon', 0, 7,0,4],
+  t6: ['1:00pm', 0, 7,0,4],
+  t7: ['2:00pm', 2, 15,1,4],
+  t8: ['3:00pm', 2, 15,1,4],
+  t9: ['4:00pm', 2, 15,1,4],
+  t10: ['5:00pm', 15, 35,3,8],
+  t11: ['6:00pm', 15, 35,3,8],
+  t12: ['7:00pm', 15, 35,3,8],
+  t13: ['8:00pm', 12, 31,5,12],
+  t14: ['9:00pm', 12, 31,5,12],
+  t15: ['10:00pm', 12, 31,5,12],
+  t16: ['11:00pm', 5, 20,6,11],
+  t17: ['12 midnight', 5, 20,6,11],
+  t18: ['1:00am', 5, 20,6,11]
+};
+var ravennaData = {
+  t1: ['8:00am', 0, 4,0,4],
+  t2: ['9:00am', 0, 4,0,4],
+  t3: ['10:00am', 0, 4,0,4],
+  t4: ['11:00am', 0, 7,0,4],
+  t5: ['12 noon', 0, 7,0,4],
+  t6: ['1:00pm', 0, 7,0,4],
+  t7: ['2:00pm', 2, 15,1,4],
+  t8: ['3:00pm', 2, 15,1,4],
+  t9: ['4:00pm', 2, 15,1,4],
+  t10: ['5:00pm', 15, 35,3,8],
+  t11: ['6:00pm', 15, 35,3,8],
+  t12: ['7:00pm', 15, 35,3,8],
+  t13: ['8:00pm', 12, 31,5,12],
+  t14: ['9:00pm', 12, 31,5,12],
+  t15: ['10:00pm', 12, 31,5,12],
+  t16: ['11:00pm', 5, 20,6,11],
+  t17: ['12 midnight', 5, 20,6,11],
+  t18: ['1:00am', 5, 20,6,11]
+};
+
+// Functions
 function generateRandom(min,max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
+
 function calcDrivers(deliveries) {
   if (deliveries % 3 === 0) {
     var drivers = deliveries / 3;
@@ -82,8 +187,6 @@ function calcDrivers(deliveries) {
   }
   return driverMsg;
 }
-
-
 
 function listify (objectVar, ulId) {
   console.log(objectVar);
@@ -104,4 +207,11 @@ function listify (objectVar, ulId) {
     placeForMahList.appendChild(liEl);
   }
 };
+
+// Generate Lists for each data set
 listify(ballardData,'ballard');
+listify(firstHillData,'firsthill');
+listify(internationalDistData,'international-dist');
+listify(sluData,'slu');
+listify(georgetownData,'georgetown');
+listify(ravennaData,'ravenna');
