@@ -85,6 +85,7 @@ var ballardData = {
     return driverMsg;
   },
   listify: function(ulId) {
+    var totalPizzas = 0;
     var listLocation = document.getElementById(ulId);
     var x;
     for (x in this) {
@@ -94,11 +95,12 @@ var ballardData = {
         var numDeliveries = this.generateRandom(this[x][3],this[x][4]);
         var numDrivers = this.calcDrivers(numDeliveries);
         var liEl = document.createElement('li');
-
         liEl.textContent = hour + ' ' + pizzas + ' pizzas, ' + numDeliveries + ' deliveries -- [ ' + numDrivers + ' ]' ;
         listLocation.appendChild(liEl);
+        totalPizzas = totalPizzas + numDeliveries + pizzas;
       }
     }
+    return totalPizzas;
   }
 };
 
@@ -138,6 +140,7 @@ var firstHillData = {
     return driverMsg;
   },
   listify: function(ulId) {
+    var totalPizzas = 0;
     var listLocation = document.getElementById(ulId);
     var x;
     for (x in this) {
@@ -147,11 +150,12 @@ var firstHillData = {
         var numDeliveries = this.generateRandom(this[x][3],this[x][4]);
         var numDrivers = this.calcDrivers(numDeliveries);
         var liEl = document.createElement('li');
-
         liEl.textContent = hour + ' ' + pizzas + ' pizzas, ' + numDeliveries + ' deliveries -- [ ' + numDrivers + ' ]' ;
         listLocation.appendChild(liEl);
+        totalPizzas = totalPizzas + numDeliveries + pizzas;
       }
     }
+    return totalPizzas;
   }
 };
 
@@ -191,6 +195,7 @@ var internationalDistData = {
     return driverMsg;
   },
   listify: function(ulId) {
+    var totalPizzas = 0;
     var listLocation = document.getElementById(ulId);
     var x;
     for (x in this) {
@@ -200,11 +205,12 @@ var internationalDistData = {
         var numDeliveries = this.generateRandom(this[x][3],this[x][4]);
         var numDrivers = this.calcDrivers(numDeliveries);
         var liEl = document.createElement('li');
-
         liEl.textContent = hour + ' ' + pizzas + ' pizzas, ' + numDeliveries + ' deliveries -- [ ' + numDrivers + ' ]' ;
         listLocation.appendChild(liEl);
+        totalPizzas = totalPizzas + numDeliveries + pizzas;
       }
     }
+    return totalPizzas;
   }
 };
 var sluData = {
@@ -243,6 +249,7 @@ var sluData = {
     return driverMsg;
   },
   listify: function(ulId) {
+    var totalPizzas = 0;
     var listLocation = document.getElementById(ulId);
     var x;
     for (x in this) {
@@ -252,11 +259,12 @@ var sluData = {
         var numDeliveries = this.generateRandom(this[x][3],this[x][4]);
         var numDrivers = this.calcDrivers(numDeliveries);
         var liEl = document.createElement('li');
-
         liEl.textContent = hour + ' ' + pizzas + ' pizzas, ' + numDeliveries + ' deliveries -- [ ' + numDrivers + ' ]' ;
         listLocation.appendChild(liEl);
+        totalPizzas = totalPizzas + numDeliveries + pizzas;
       }
     }
+    return totalPizzas;
   }
 };
 var georgetownData = {
@@ -295,6 +303,7 @@ var georgetownData = {
     return driverMsg;
   },
   listify: function(ulId) {
+    var totalPizzas = 0;
     var listLocation = document.getElementById(ulId);
     var x;
     for (x in this) {
@@ -304,11 +313,12 @@ var georgetownData = {
         var numDeliveries = this.generateRandom(this[x][3],this[x][4]);
         var numDrivers = this.calcDrivers(numDeliveries);
         var liEl = document.createElement('li');
-
         liEl.textContent = hour + ' ' + pizzas + ' pizzas, ' + numDeliveries + ' deliveries -- [ ' + numDrivers + ' ]' ;
         listLocation.appendChild(liEl);
+        totalPizzas = totalPizzas + numDeliveries + pizzas;
       }
     }
+    return totalPizzas;
   }
 };
 var ravennaData = {
@@ -347,6 +357,7 @@ var ravennaData = {
     return driverMsg;
   },
   listify: function(ulId) {
+    var totalPizzas = 0;
     var listLocation = document.getElementById(ulId);
     var x;
     for (x in this) {
@@ -356,13 +367,13 @@ var ravennaData = {
         var numDeliveries = this.generateRandom(this[x][3],this[x][4]);
         var numDrivers = this.calcDrivers(numDeliveries);
         var liEl = document.createElement('li');
-
         liEl.textContent = hour + ' ' + pizzas + ' pizzas, ' + numDeliveries + ' deliveries -- [ ' + numDrivers + ' ]' ;
         listLocation.appendChild(liEl);
+        totalPizzas = totalPizzas + numDeliveries + pizzas;
       }
     }
+    return totalPizzas;
   }
-
 };
 
 // // Functions
@@ -405,12 +416,18 @@ var ravennaData = {
 // };
 
 // Generate Lists for each data set
-ballardData.listify('ballard');
-firstHillData.listify('firsthill');
-internationalDistData.listify('international-dist');
-sluData.listify('slu');
-georgetownData.listify('georgetown');
-ravennaData.listify('ravenna');
+var ballardTotal = ballardData.listify('ballard');
+var firstHillTotal =firstHillData.listify('firsthill');
+var internationalDistTotal = internationalDistData.listify('international-dist');
+var sluTotal = sluData.listify('slu');
+var georgetownTotal = georgetownData.listify('georgetown');
+var ravennaTotal = ravennaData.listify('ravenna');
+console.log('Ballard total ' + ballardTotal);
+console.log('First Hill total ' + firstHillTotal);
+console.log('The International District total ' + internationalDistTotal);
+console.log('South Lake Union total ' + sluTotal);
+console.log('Georgetown total ' + georgetownTotal);
+console.log('Ravenna total ' + ravennaTotal);
 
 
 //Questions for tomorrow:
