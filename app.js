@@ -67,7 +67,39 @@ var ballardData = {
   t15: ['10:00pm', 12, 31,5,12],
   t16: ['11:00pm', 5, 20,6,11],
   t17: ['12 midnight', 5, 20,6,11],
-  t18: ['1:00am', 5, 20,6,11]
+  t18: ['1:00am', 5, 20,6,11],
+  generateRandom: function(min,max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  },
+  calcDrivers: function(deliveries) {
+    if (deliveries % 3 === 0) {
+      var drivers = deliveries / 3;
+    } else {
+      var drivers = Math.floor(deliveries/3) + 1
+    }
+    if (drivers === 0) {
+      var driverMsg = 'driver not recommended';
+    } else {
+      var driverMsg = 'drivers recommended: ' + drivers;
+    };
+    return driverMsg;
+  },
+  listify: function(ulId) {
+    var listLocation = document.getElementById(ulId);
+    var x;
+    for (x in this) {
+      if (typeof(this[x]) === 'object') {
+        var hour = this[x][0];
+        var pizzas = this.generateRandom(this[x][1],this[x][2]);
+        var numDeliveries = this.generateRandom(this[x][3],this[x][4]);
+        var numDrivers = this.calcDrivers(numDeliveries);
+        var liEl = document.createElement('li');
+
+        liEl.textContent = hour + ' ' + pizzas + ' pizzas, ' + numDeliveries + ' deliveries -- [ ' + numDrivers + ' ]' ;
+        listLocation.appendChild(liEl);
+      }
+    }
+  }
 };
 
 var firstHillData = {
@@ -88,7 +120,39 @@ var firstHillData = {
   t15: ['10:00pm', 12, 31,5,12],
   t16: ['11:00pm', 5, 20,6,11],
   t17: ['12 midnight', 5, 20,6,11],
-  t18: ['1:00am', 5, 20,6,11]
+  t18: ['1:00am', 5, 20,6,11],
+  generateRandom: function(min,max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  },
+  calcDrivers: function(deliveries) {
+    if (deliveries % 3 === 0) {
+      var drivers = deliveries / 3;
+    } else {
+      var drivers = Math.floor(deliveries/3) + 1
+    }
+    if (drivers === 0) {
+      var driverMsg = 'driver not recommended';
+    } else {
+      var driverMsg = 'drivers recommended: ' + drivers;
+    };
+    return driverMsg;
+  },
+  listify: function(ulId) {
+    var listLocation = document.getElementById(ulId);
+    var x;
+    for (x in this) {
+      if (typeof(this[x]) === 'object') {
+        var hour = this[x][0];
+        var pizzas = this.generateRandom(this[x][1],this[x][2]);
+        var numDeliveries = this.generateRandom(this[x][3],this[x][4]);
+        var numDrivers = this.calcDrivers(numDeliveries);
+        var liEl = document.createElement('li');
+
+        liEl.textContent = hour + ' ' + pizzas + ' pizzas, ' + numDeliveries + ' deliveries -- [ ' + numDrivers + ' ]' ;
+        listLocation.appendChild(liEl);
+      }
+    }
+  }
 };
 
 var internationalDistData = {
@@ -109,7 +173,39 @@ var internationalDistData = {
   t15: ['10:00pm', 12, 31,5,12],
   t16: ['11:00pm', 5, 20,6,11],
   t17: ['12 midnight', 5, 20,6,11],
-  t18: ['1:00am', 5, 20,6,11]
+  t18: ['1:00am', 5, 20,6,11],
+  generateRandom: function(min,max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  },
+  calcDrivers: function(deliveries) {
+    if (deliveries % 3 === 0) {
+      var drivers = deliveries / 3;
+    } else {
+      var drivers = Math.floor(deliveries/3) + 1
+    }
+    if (drivers === 0) {
+      var driverMsg = 'driver not recommended';
+    } else {
+      var driverMsg = 'drivers recommended: ' + drivers;
+    };
+    return driverMsg;
+  },
+  listify: function(ulId) {
+    var listLocation = document.getElementById(ulId);
+    var x;
+    for (x in this) {
+      if (typeof(this[x]) === 'object') {
+        var hour = this[x][0];
+        var pizzas = this.generateRandom(this[x][1],this[x][2]);
+        var numDeliveries = this.generateRandom(this[x][3],this[x][4]);
+        var numDrivers = this.calcDrivers(numDeliveries);
+        var liEl = document.createElement('li');
+
+        liEl.textContent = hour + ' ' + pizzas + ' pizzas, ' + numDeliveries + ' deliveries -- [ ' + numDrivers + ' ]' ;
+        listLocation.appendChild(liEl);
+      }
+    }
+  }
 };
 var sluData = {
   t1: ['8:00am', 0, 4,0,4],
@@ -129,7 +225,39 @@ var sluData = {
   t15: ['10:00pm', 12, 31,5,12],
   t16: ['11:00pm', 5, 20,6,11],
   t17: ['12 midnight', 5, 20,6,11],
-  t18: ['1:00am', 5, 20,6,11]
+  t18: ['1:00am', 5, 20,6,11],
+  generateRandom: function(min,max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  },
+  calcDrivers: function(deliveries) {
+    if (deliveries % 3 === 0) {
+      var drivers = deliveries / 3;
+    } else {
+      var drivers = Math.floor(deliveries/3) + 1
+    }
+    if (drivers === 0) {
+      var driverMsg = 'driver not recommended';
+    } else {
+      var driverMsg = 'drivers recommended: ' + drivers;
+    };
+    return driverMsg;
+  },
+  listify: function(ulId) {
+    var listLocation = document.getElementById(ulId);
+    var x;
+    for (x in this) {
+      if (typeof(this[x]) === 'object') {
+        var hour = this[x][0];
+        var pizzas = this.generateRandom(this[x][1],this[x][2]);
+        var numDeliveries = this.generateRandom(this[x][3],this[x][4]);
+        var numDrivers = this.calcDrivers(numDeliveries);
+        var liEl = document.createElement('li');
+
+        liEl.textContent = hour + ' ' + pizzas + ' pizzas, ' + numDeliveries + ' deliveries -- [ ' + numDrivers + ' ]' ;
+        listLocation.appendChild(liEl);
+      }
+    }
+  }
 };
 var georgetownData = {
   t1: ['8:00am', 0, 4,0,4],
@@ -149,7 +277,39 @@ var georgetownData = {
   t15: ['10:00pm', 12, 31,5,12],
   t16: ['11:00pm', 5, 20,6,11],
   t17: ['12 midnight', 5, 20,6,11],
-  t18: ['1:00am', 5, 20,6,11]
+  t18: ['1:00am', 5, 20,6,11],
+  generateRandom: function(min,max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  },
+  calcDrivers: function(deliveries) {
+    if (deliveries % 3 === 0) {
+      var drivers = deliveries / 3;
+    } else {
+      var drivers = Math.floor(deliveries/3) + 1
+    }
+    if (drivers === 0) {
+      var driverMsg = 'driver not recommended';
+    } else {
+      var driverMsg = 'drivers recommended: ' + drivers;
+    };
+    return driverMsg;
+  },
+  listify: function(ulId) {
+    var listLocation = document.getElementById(ulId);
+    var x;
+    for (x in this) {
+      if (typeof(this[x]) === 'object') {
+        var hour = this[x][0];
+        var pizzas = this.generateRandom(this[x][1],this[x][2]);
+        var numDeliveries = this.generateRandom(this[x][3],this[x][4]);
+        var numDrivers = this.calcDrivers(numDeliveries);
+        var liEl = document.createElement('li');
+
+        liEl.textContent = hour + ' ' + pizzas + ' pizzas, ' + numDeliveries + ' deliveries -- [ ' + numDrivers + ' ]' ;
+        listLocation.appendChild(liEl);
+      }
+    }
+  }
 };
 var ravennaData = {
   t1: ['8:00am', 0, 4,0,4],
@@ -169,58 +329,92 @@ var ravennaData = {
   t15: ['10:00pm', 12, 31,5,12],
   t16: ['11:00pm', 5, 20,6,11],
   t17: ['12 midnight', 5, 20,6,11],
-  t18: ['1:00am', 5, 20,6,11]
+  t18: ['1:00am', 5, 20,6,11],
+  generateRandom: function(min,max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  },
+  calcDrivers: function(deliveries) {
+    if (deliveries % 3 === 0) {
+      var drivers = deliveries / 3;
+    } else {
+      var drivers = Math.floor(deliveries/3) + 1
+    }
+    if (drivers === 0) {
+      var driverMsg = 'driver not recommended';
+    } else {
+      var driverMsg = 'drivers recommended: ' + drivers;
+    };
+    return driverMsg;
+  },
+  listify: function(ulId) {
+    var listLocation = document.getElementById(ulId);
+    var x;
+    for (x in this) {
+      if (typeof(this[x]) === 'object') {
+        var hour = this[x][0];
+        var pizzas = this.generateRandom(this[x][1],this[x][2]);
+        var numDeliveries = this.generateRandom(this[x][3],this[x][4]);
+        var numDrivers = this.calcDrivers(numDeliveries);
+        var liEl = document.createElement('li');
+
+        liEl.textContent = hour + ' ' + pizzas + ' pizzas, ' + numDeliveries + ' deliveries -- [ ' + numDrivers + ' ]' ;
+        listLocation.appendChild(liEl);
+      }
+    }
+  }
+
 };
 
-// Functions
-function generateRandom(min,max) {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-}
-
-function calcDrivers(deliveries) {
-  if (deliveries % 3 === 0) {
-    var drivers = deliveries / 3;
-  } else {
-    var drivers = Math.floor(deliveries/3) + 1
-  }
-  if (drivers === 0) {
-    var driverMsg = 'driver not recommended';
-  } else {
-    var driverMsg = 'drivers recommended: ' + drivers;
-  };
-  return driverMsg;
-}
-
-function listify (objectVar, ulId) {
-  console.log(objectVar);
-  console.log(ulId);
-  var placeForMahList = document.getElementById(ulId);
-  var x;
-  for (x in objectVar) {
-    var hour = objectVar[x][0];
-    var pizzas = generateRandom(objectVar[x][1],objectVar[x][2]);
-    var numDeliveries = generateRandom(objectVar[x][3],objectVar[x][4]);
-    var numDrivers = calcDrivers(numDeliveries);
-    console.log('the time is: ' + hour);
-    console.log('number of pizzas are: ' + pizzas);
-    console.log('number of deliveries are : ' + numDeliveries);
-    console.log('number of recomended drivers are :' + numDrivers);
-    var liEl = document.createElement('li');
-    liEl.textContent = hour + ' ' + pizzas + ' pizzas, ' + numDeliveries + ' deliveries -- [ ' + numDrivers + ' ]' ;
-    placeForMahList.appendChild(liEl);
-  }
-};
+// // Functions
+// function generateRandom(min,max) {
+//   return Math.floor(Math.random() * (max - min + 1)) + min;
+// }
+//
+// function calcDrivers(deliveries) {
+//   if (deliveries % 3 === 0) {
+//     var drivers = deliveries / 3;
+//   } else {
+//     var drivers = Math.floor(deliveries/3) + 1
+//   }
+//   if (drivers === 0) {
+//     var driverMsg = 'driver not recommended';
+//   } else {
+//     var driverMsg = 'drivers recommended: ' + drivers;
+//   };
+//   return driverMsg;
+// }
+//
+// function listify (objectVar, ulId) {
+//   // console.log(objectVar);
+//   // console.log(ulId);
+//   var listLocation = document.getElementById(ulId);
+//   var x;
+//   for (x in objectVar) {
+//     var hour = objectVar[x][0];
+//     var pizzas = generateRandom(objectVar[x][1],objectVar[x][2]);
+//     var numDeliveries = generateRandom(objectVar[x][3],objectVar[x][4]);
+//     var numDrivers = calcDrivers(numDeliveries);
+//     // console.log('the time is: ' + hour);
+//     // console.log('number of pizzas are: ' + pizzas);
+//     // console.log('number of deliveries are : ' + numDeliveries);
+//     // console.log('number of recomended drivers are :' + numDrivers);
+//     var liEl = document.createElement('li');
+//     liEl.textContent = hour + ' ' + pizzas + ' pizzas, ' + numDeliveries + ' deliveries -- [ ' + numDrivers + ' ]' ;
+//     listLocation.appendChild(liEl);
+//   }
+// };
 
 // Generate Lists for each data set
-listify(ballardData,'ballard');
-listify(firstHillData,'firsthill');
-listify(internationalDistData,'international-dist');
-listify(sluData,'slu');
-listify(georgetownData,'georgetown');
-listify(ravennaData,'ravenna');
+ballardData.listify('ballard');
+firstHillData.listify('firsthill');
+internationalDistData.listify('international-dist');
+sluData.listify('slu');
+georgetownData.listify('georgetown');
+ravennaData.listify('ravenna');
 
 
 //Questions for tomorrow:
 // 1. calculating number of drivers based on random number of deliveries could end with lack of drivers, maybe should be based on max?
 // 2. as of now deliveries > # of pizzas....?
-// 3. my functions live outside my object, didn't seem to make sense to store them in object as I couldn't use the benefit of if operators and the like.... also i want to use the same functions across 6 objects.
+// 3. my functions live outside my object, didn't seem to make sense to store them in object as I couldn't use the benefit of this operators and the like.... also i want to use the same functions across 6 objects.
+// 4. Client Question: Do you deliver pizza's between 2:00 am and 3:00 am or do you close at 2:00?
