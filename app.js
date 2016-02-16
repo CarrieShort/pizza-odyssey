@@ -180,11 +180,14 @@ function generateRandom(min,max) {
 function calcDrivers(deliveries) {
   if (deliveries % 3 === 0) {
     var drivers = deliveries / 3;
-    var driverMsg = 'driver not recommended';
   } else {
     var drivers = Math.floor(deliveries/3) + 1
-    var driverMsg = 'drivers recommended: ' + drivers;
   }
+  if (drivers === 0) {
+    var driverMsg = 'driver not recommended';
+  } else {
+    var driverMsg = 'drivers recommended: ' + drivers;
+  };
   return driverMsg;
 }
 
