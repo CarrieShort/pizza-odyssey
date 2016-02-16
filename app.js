@@ -218,3 +218,9 @@ listify(internationalDistData,'international-dist');
 listify(sluData,'slu');
 listify(georgetownData,'georgetown');
 listify(ravennaData,'ravenna');
+
+
+//Questions for tomorrow:
+// 1. calculating number of drivers based on random number of deliveries could end with lack of drivers, maybe should be based on max?
+// 2. as of now deliveries > # of pizzas....?
+// 3. my functions live outside my object, didn't seem to make sense to store them in object as I couldn't use the benefit of if operators and the like.... also i want to use the same functions across 6 objects.
