@@ -87,12 +87,12 @@ PizzaShop.prototype.reportData = function (){
     var numPizzas = this.generateRandom(this.storeData[i][0],this.storeData[i][1]);
     var numDeliveries = this.generateRandom(this.storeData[i][2],this.storeData[i][3]);
     var numDrivers = this.calcDrivers(numDeliveries);
-    this.storeData[i] = [this.storeData[i][4],numPizzas,numDeliveries,numDrivers];
+    var tempArray = [this.storeData[i][4],numPizzas,numDeliveries,numDrivers];
 
-    for (var j=0; j < this.storeData[i].length; j++){
+    for (var j=0; j < tempArray.length; j++){
       // build TDs here
       var newTD = document.createElement('td');
-      newTD.textContent = this.storeData[i][j];
+      newTD.textContent = tempArray[j];
       newTR.appendChild(newTD);
     }
 
