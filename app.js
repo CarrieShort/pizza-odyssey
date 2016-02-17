@@ -60,32 +60,40 @@ PizzaShop.prototype.calcDrivers = function(deliveries) {
 }
 
 // build out table and make calculations
-
 PizzaShop.prototype.reportData = function (){
   this.modData();
-  // build table and table headers here
   var totalPizzas = 0;
+  // Table
+  var tableHeaders = ['Time','Pizzas Sold in Store','Pizzas Delivered','Recommended Drivers'];
   var contentLocation = document.getElementById('build');
   var paragraph = document.createElement('p');
   paragraph.textContent = this.storeLocation;
   var table = document.createElement('table');
+  var headTR = document.createElement('tr');
 
   if (contentLocation) {
     contentLocation.appendChild(paragraph);
     contentLocation.appendChild(table);
   }
+  table.appendChild(headTR);
+
+  //Table Headers
+  for (var i=0; i < tableHeaders.length; i++) {
+    var newTH = document.createElement('th');
+    newTH.textContent = tableHeaders[i];
+    headTR.appendChild(newTH);
+  }
 
   for (var i=0; i < this.storeData.length; i++){
-    // Build tr here
+    // Table Rows
     var newTR = document.createElement('tr');
-    table.appendChild(newTR);
     var numPizzas = this.generateRandom(this.storeData[i][0],this.storeData[i][1]);
     var numDeliveries = this.generateRandom(this.storeData[i][2],this.storeData[i][3]);
     var numDrivers = this.calcDrivers(numDeliveries);
     var tempArray = [this.storeData[i][4],numPizzas,numDeliveries,numDrivers];
-
+    table.appendChild(newTR);
+    //Table Cells
     for (var j=0; j < tempArray.length; j++){
-      // build TDs here
       var newTD = document.createElement('td');
       newTD.textContent = tempArray[j];
       newTR.appendChild(newTD);
