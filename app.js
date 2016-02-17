@@ -2,10 +2,22 @@
 //example data structure
 var ballardData = [[0,4,0,4],[0,4,0,4],[0,4,0,4],[0,7,0,4],[0,7,0,4],[0,7,0,4],[2,15,1,4],[2,15,1,4],[2,15,1,4],[15,35,3,8],[15,35,3,8],[15,35,3,8],[12,31,5,12],[12,31,5,12],[12,31,5,12],[5,20,6,11],[5,20,6,11],[5,20,6,11]];
 
+var data2 = [[0,4,0,4],[0,4,0,4],[0,4,0,4],[0,7,0,4],[0,7,0,4],[0,7,0,4],[2,15,1,4],[2,15,1,4],[2,15,1,4],[15,35,3,8],[15,35,3,8],[15,35,3,8],[12,31,5,12],[12,31,5,12],[12,31,5,12],[5,20,6,11],[5,20,6,11],[5,20,6,11]];
+
+
+
+
+// cunstructor function
+function PizzaShop(storeLocation,storeData) {
+  this.storeLocation = storeLocation;
+  this.storeData = storeData;
+}
+
+// extend PizzaShop
 // push time to storeData
-function modData() {
+PizzaShop.prototype.modData = function() {
   console.log('data goes');
-  for(var i=0; i < ballardData.length; i++){
+  for(var i=0; i < this.storeData.length; i++){
     var timeNum = (8 + i);
     if (timeNum < 12) {
       var timeString = timeNum + ':00 am';
@@ -19,20 +31,11 @@ function modData() {
       var timeString = (timeNum - 12) + ':00 pm';
     }
 
-    console.log(i);
-    ballardData[i].push(timeString);
+
+    this.storeData[i].push(timeString);
   }
 }
-modData();
 
-
-// cunstructor function
-function PizzaShop(storeLocation,storeData) {
-  this.storeLocation = storeLocation;
-  this.storeData = storeData;
-}
-
-// extend PizzaShop
 
 // generate random function
 PizzaShop.prototype.generateRandom = function(min,max) {
@@ -57,24 +60,39 @@ PizzaShop.prototype.calcDrivers = function(deliveries) {
 // build out table and make calculations
 
 PizzaShop.prototype.reportData = function (){
-
+  this.modData();
+  var contentLocation = document.getElementById('build');
+  var paragraph = document.createElement('p');
+  paragraph.textContent = this.storeLocation;
+  var table = document.createElement('table');
+  if (contentLocation) {
+    contentLocation.appendChild(paragraph);
+    contentLocation.appendChild(table);
+  }
 // build table here
 // build table headers here
   for (var i=0; i < this.storeData.length; i++){
     // Build tr here
+    var newTR = document.createElement('tr');
+    table.appendChild(newTR);
     var numPizzas = this.generateRandom(this.storeData[i][0],this.storeData[i][1]);
     var numDeliveries = this.generateRandom(this.storeData[i][2],this.storeData[i][3]);
     var numDrivers = this.calcDrivers(numDeliveries);
     this.storeData[i] = [this.storeData[i][4],numPizzas,numDeliveries,numDrivers];
-    console.log(this.storeData[i]);
-    // for (var j=0; j < this.storeData[i].length; i++) {
-    //   // build TDs here
-    // }
+
+    for (var j=0; j < this.storeData[i].length; j++){
+      // build TDs here
+      var newTD = document.createElement('td');
+      newTD.textContent = this.storeData[i][j];
+      newTR.appendChild(newTD);
+    }
 
   }
 
 }
 
 var ballard = new PizzaShop('Ballard',ballardData);
+var obj2 = new PizzaShop('Object',data2);
 
 ballard.reportData();
+obj2.reportData();
