@@ -4,6 +4,15 @@ var ballardData = [[0,4,0,4],[0,4,0,4],[0,4,0,4],[0,7,0,4],[0,7,0,4],[0,7,0,4],[
 
 var firstHillData = [[1,3,1,7],[1,3,1,7],[1,3,1,7],[5,9,2,8],[5,9,2,8],[5,9,2,8],[2,13,1,6],[2,13,1,6],[2,13,1,6],[18,32,3,9],[18,32,3,9],[18,32,3,9],[1,3,5,12],[1,3,5,12],[1,3,5,12],[8,20,6,16],[8,20,6,16],[8,20,6,16]];
 
+var internationalDistData = [[0,4,0,4],[0,4,0,4],[0,4,0,4],[0,7,0,4],[0,7,0,4],[0,7,0,4],[2,15,1,4],[2,15,1,4],[2,15,1,4],[10,26,4,6],[10,26,4,6],[10,26,4,6],[8,22,7,15],[8,22,7,15],[8,22,7,15],[0,2,2,8],[0,2,2,8],[0,2,2,8]];
+
+var sluData = [[0,4,0,4],[0,4,0,4],[0,4,0,4],[0,7,0,4],[0,7,0,4],[0,7,0,4],[5,15,0,4],[5,15,0,4],[5,15,0,4],[25,39,13,18],[25,39,13,18],[25,39,13,18],[22,36,5,22],[22,36,5,22],[22,36,5,22],[5,21,16,31],[5,21,16,31],[5,21,16,31]];
+
+var georgetownData = [[2,7,3,5],[2,7,3,5],[2,7,3,5],[3,8,3,9],[3,8,3,9],[3,8,3,9],[1,5,1,4],[1,5,1,4],[1,5,1,4],[5,13,2,4],[5,13,2,4],[5,13,2,4],[22,41,15,42],[22,41,15,42],[22,41,15,42],[15,20,6,21],[15,20,6,21],[15,20,6,21]];
+
+var ravennaData = [[0,4,0,4],[0,4,0,4],[0,4,0,4],[0,7,0,4],[0,7,0,4],[0,7,0,4],[2,15,1,4],[2,15,1,4],[2,15,1,4],[6,9,5,18],[6,9,5,18],[6,9,5,18],[4,8,2,5],[4,8,2,5],[4,8,2,5],[2,4,3,11],[2,4,3,11],[2,4,3,11]];
+
+
 
 
 
@@ -93,6 +102,14 @@ PizzaShop.prototype.reportData = function (){
 
 var ballard = new PizzaShop('Ballard',ballardData);
 var firstHill = new PizzaShop('First Hill',firstHillData);
+var internationalDist = new PizzaShop('The International District',internationalDistData);
+var slu = new PizzaShop('South Lake Union',sluData);
+var georgetown = new PizzaShop('Georgetown',georgetownData);
+var ravenna = new PizzaShop('Ravenna',ravennaData);
 
 ballard.reportData();
 firstHill.reportData();
+internationalDist.reportData();
+slu.reportData();
+georgetown.reportData();
+ravenna.reportData();
