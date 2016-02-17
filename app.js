@@ -95,6 +95,7 @@ PizzaShop.prototype.reportData = function (){
   return totalPizzas;
 }
 
+//Construct Objects
 var ballard = new PizzaShop('Ballard',ballardData);
 var firstHill = new PizzaShop('First Hill',firstHillData);
 var internationalDist = new PizzaShop('The International District',internationalDistData);
@@ -102,6 +103,7 @@ var slu = new PizzaShop('South Lake Union',sluData);
 var georgetown = new PizzaShop('Georgetown',georgetownData);
 var ravenna = new PizzaShop('Ravenna',ravennaData);
 
+// runs functions which print tables and returns and stores total pizzas
 var ballardTotal = ballard.reportData();
 var firstHillTotal = firstHill.reportData();
 var internationalDistTotal = internationalDist.reportData();
@@ -109,9 +111,11 @@ var sluTotal = slu.reportData();
 var georgetownTotal = georgetown.reportData();
 var ravennaTotal = ravenna.reportData();
 
+// calculate total pizzas per week
 var pizzaOdysseys = (ballardTotal + firstHillTotal + internationalDistTotal + sluTotal + georgetownTotal + ravennaTotal) * 6;
 var odysseyLocation = document.getElementById('odysseys');
 
+// print total to index.html
 if (odysseyLocation) {
   odysseyLocation.textContent = pizzaOdysseys;
 }
