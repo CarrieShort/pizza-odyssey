@@ -151,7 +151,6 @@ if (odysseyLocation) {
 var summaryTable = buildTable(['Location','Pizzas','Deliveries','Avg Drivers per Hour'],'summary','A summary of all 3001Pizza Locations');
 
 for (var i=0; i < summaryArray.length; i++){
-  console.log([i]);
   var summaryTR = buildRow(summaryTable);
   buildCells(summaryTR, summaryArray[i]);
 }
