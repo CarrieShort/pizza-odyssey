@@ -12,20 +12,15 @@ var georgetownData = [[2,7,3,5],[2,7,3,5],[2,7,3,5],[3,8,3,9],[3,8,3,9],[3,8,3,9
 
 var ravennaData = [[0,4,0,4],[0,4,0,4],[0,4,0,4],[0,7,0,4],[0,7,0,4],[0,7,0,4],[2,15,1,4],[2,15,1,4],[2,15,1,4],[6,9,5,18],[6,9,5,18],[6,9,5,18],[4,8,2,5],[4,8,2,5],[4,8,2,5],[2,4,3,11],[2,4,3,11],[2,4,3,11]];
 
-
-
-
-
 // cunstructor function
 function PizzaShop(storeLocation,storeData) {
   this.storeLocation = storeLocation;
   this.storeData = storeData;
 }
 
-// extend PizzaShop
-// push time to storeData
+// extend PizzaShop constructor with methods
+// function to modify storeData arrays by adding time
 PizzaShop.prototype.modData = function() {
-  console.log('data goes');
   for(var i=0; i < this.storeData.length; i++){
     var timeNum = (8 + i);
     if (timeNum < 12) {
@@ -39,8 +34,6 @@ PizzaShop.prototype.modData = function() {
     } else if (timeNum > 12){
       var timeString = (timeNum - 12) + ':00 pm';
     }
-
-
     this.storeData[i].push(timeString);
   }
 }
@@ -70,16 +63,18 @@ PizzaShop.prototype.calcDrivers = function(deliveries) {
 
 PizzaShop.prototype.reportData = function (){
   this.modData();
+  // build table and table headers here
+  var totalPizzas = 0;
   var contentLocation = document.getElementById('build');
   var paragraph = document.createElement('p');
   paragraph.textContent = this.storeLocation;
   var table = document.createElement('table');
+
   if (contentLocation) {
     contentLocation.appendChild(paragraph);
     contentLocation.appendChild(table);
   }
-// build table here
-// build table headers here
+
   for (var i=0; i < this.storeData.length; i++){
     // Build tr here
     var newTR = document.createElement('tr');
@@ -95,9 +90,9 @@ PizzaShop.prototype.reportData = function (){
       newTD.textContent = tempArray[j];
       newTR.appendChild(newTD);
     }
-
+    totalPizzas = totalPizzas + numDeliveries + numPizzas;
   }
-
+  return totalPizzas;
 }
 
 var ballard = new PizzaShop('Ballard',ballardData);
@@ -107,9 +102,16 @@ var slu = new PizzaShop('South Lake Union',sluData);
 var georgetown = new PizzaShop('Georgetown',georgetownData);
 var ravenna = new PizzaShop('Ravenna',ravennaData);
 
-ballard.reportData();
-firstHill.reportData();
-internationalDist.reportData();
-slu.reportData();
-georgetown.reportData();
-ravenna.reportData();
+var ballardTotal = ballard.reportData();
+var firstHillTotal = firstHill.reportData();
+var internationalDistTotal = internationalDist.reportData();
+var sluTotal = slu.reportData();
+var georgetownTotal = georgetown.reportData();
+var ravennaTotal = ravenna.reportData();
+
+var pizzaOdysseys = (ballardTotal + firstHillTotal + internationalDistTotal + sluTotal + georgetownTotal + ravennaTotal) * 6;
+var odysseyLocation = document.getElementById('odysseys');
+
+if (odysseyLocation) {
+  odysseyLocation.textContent = pizzaOdysseys;
+}
