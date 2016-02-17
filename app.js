@@ -38,13 +38,13 @@ PizzaShop.prototype.modData = function() {
     }
     this.storeData[i].push(timeString);
   }
-}
+};
 
 
 // generate random function
 PizzaShop.prototype.generateRandom = function(min,max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
-}
+};
 
 // calculate number of drivers
 PizzaShop.prototype.calcDrivers = function(deliveries) {
@@ -54,7 +54,7 @@ PizzaShop.prototype.calcDrivers = function(deliveries) {
     var drivers = Math.floor(deliveries/3) + 1
   }
   return drivers;
-}
+};
 
 // PizzaShop
 PizzaShop.prototype.reportData = function (){
@@ -81,7 +81,7 @@ PizzaShop.prototype.reportData = function (){
   var totalDrivers = Math.ceil(this.calcDrivers(totalDeliveries)/18);
   summaryArray.push([this.storeLocation,totalStorePizzas,totalDeliveries,totalDrivers]);
   return totalPizzas;
-}
+};
 
 //Global Functions
 //Table
