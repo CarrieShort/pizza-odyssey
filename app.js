@@ -56,6 +56,28 @@ PizzaShop.prototype.calcDrivers = function(deliveries) {
   return drivers;
 };
 
+PizzaShop.prototype.calcData = function() {
+  this.modData();
+  //Tracking Variables
+  var totalPizzas = 0;
+  var totalStorePizzas = 0;
+  var totalDeliveries = 0;
+  var totalDrivers = 0;
+  for (var i=0; i < this.storeData.length; i++){
+    var numPizzas = this.generateRandom(this.storeData[i][0],this.storeData[i][1]);
+    var numDeliveries = this.generateRandom(this.storeData[i][2],this.storeData[i][3]);
+    var numDrivers = this.calcDrivers(numDeliveries);
+    this.objectRow = [this.storeData[i][4],numPizzas,numDeliveries,numDrivers];
+
+    totalPizzas = totalPizzas + numDeliveries + numPizzas;
+    totalStorePizzas = totalStorePizzas + numPizzas;
+    totalDeliveries = totalDeliveries + numDeliveries;
+  }
+  var totalDrivers = Math.ceil(this.calcDrivers(totalDeliveries)/18);
+  summaryArray.push([this.storeLocation,totalStorePizzas,totalDeliveries,totalDrivers]);
+  return totalPizzas;
+}
+
 // PizzaShop
 PizzaShop.prototype.reportData = function (){
   this.modData();
