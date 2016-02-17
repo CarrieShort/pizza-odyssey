@@ -1,303 +1,63 @@
 'use strict';
+//example data structure
+var ballardData = [[0,4,0,4],[0,7,0,4],[0,7,0,4],[0,7,0,4],[0,7,0,4],[0,7,0,4],[0,7,0,4],[0,7,0,4],[0,7,0,4],[0,7,0,4],[0,7,0,4],[0,7,0,4],[0,7,0,4],[0,7,0,4],[0,7,0,4],[0,7,0,4],[0,7,0,4],[0,7,0,4],[0,7,0,4],[0,7,0,4]];
 
-/*
-Create an array for each time. This means that there will be 18 properties per object :( = saddest face ever.
-Plan for object
-
-var example = {
-t1: [time string, minPizza, maxPizza,minDelivery,maxDelivery],
-t2: [],
-t3: [],
-t4: [],
-t5: [],
-t6: [],
-t7: [],
-t8: [],
-t9: [],
-t10: [],
-t11: [],
-t12: [],
-t13: [],
-t14: [],
-t15: [],
-t16: [],
-t17: [],
-t18: [],
-generateRandom: function(min,max) {
-return Math.floor(Math.random() * (max - min + 1)) + min;
-},
-
-calcDrivers: function(deliveries) {
-  if (deliveries % 3 === 0) {
-  var drivers = deliveries / 3;
-} else {
-  var drivers = Math.floor(deliveries/3) + 1
-}
-return drivers;
-}
-}
-
-Use a for in loop to iterate through object. May need to create some check so it only loops through properties and not methods, not sure if a for in loop iterates over both or just properties:
-var x;
-for (x in example) {
-var hour = example[x][0];
-var pizzas = example.generateRandom(example[x][1],example[x][2]);
-var deliveries = example.generateRandom(example[x][3],example[x][4]);
-}
+// // push time to dataSet
+// function modData() {
+//   console.log('data goes');
+//   for(var i=0; i < ballardData.length; i++){
+//     var timeNum = (8 + i);
+//     if (timeNum < 12) {
+//       var timeString = timeNum + ':00 am';
+//     } else if(timeNum === 12) {
+//       var timeString = timeNum + ':00 noon';
+//     } else if(timeNum === 24) {
+//       var timeString = (timeNum - 12) + ':00 midnight';
+//     } else if (timeNum > 24){
+//       var timeString = (timeNum - 24) + ':00 am';
+//     } else if (timeNum > 12){
+//       var timeString = (timeNum - 12) + ':00 pm';
+//     }
+//
+//     console.log(i);
+//     ballardData[i].push(timeString);
+//   }
+// }
+// modData();
 
 
-*/
-
-// // Original Global Functions
-// function generateRandom(min,max) {
+// // cunstructor function
+// function PizzaShop(storeLocation,storeData) {
+//   this.storeLocation = storeData;
+//   this.dataSet = dataSet;
+// }
+//
+// // extend PizzaShop
+//
+// // generate random function
+// PizzaShop.prototype.generateRandom = function(min,max) {
 //   return Math.floor(Math.random() * (max - min + 1)) + min;
 // }
 //
-// function calcDrivers(deliveries) {
-//   if (deliveries % 3 === 0) {
-//     var drivers = deliveries / 3;
-//   } else {
-//     var drivers = Math.floor(deliveries/3) + 1
-//   }
-//   if (drivers === 0) {
-//     var driverMsg = 'driver not recommended';
-//   } else {
-//     var driverMsg = 'drivers recommended: ' + drivers;
-//   };
-//   return driverMsg;
+// // calculate number of drivers
+// PizzaShop.prototype.calcDrivers = function() {
+//
 // }
 //
-// function listify (objectVar, ulId) {
-//   // console.log(objectVar);
-//   // console.log(ulId);
-//   var listLocation = document.getElementById(ulId);
-//   var x;
-//   for (x in objectVar) {
-//     var hour = objectVar[x][0];
-//     var pizzas = generateRandom(objectVar[x][1],objectVar[x][2]);
-//     var numDeliveries = generateRandom(objectVar[x][3],objectVar[x][4]);
-//     var numDrivers = calcDrivers(numDeliveries);
-//     // console.log('the time is: ' + hour);
-//     // console.log('number of pizzas are: ' + pizzas);
-//     // console.log('number of deliveries are : ' + numDeliveries);
-//     // console.log('number of recomended drivers are :' + numDrivers);
-//     var liEl = document.createElement('li');
-//     liEl.textContent = hour + ' ' + pizzas + ' pizzas, ' + numDeliveries + ' deliveries -- [ ' + numDrivers + ' ]' ;
-//     listLocation.appendChild(liEl);
+// // build out table and make calculations
+//
+// PizzaShop.prototype.reportData = function (){
+//   console.log(this.dataSet);
+//   for (var i=0; i < this.dataSet.length; i++){
+//     console.log (this.dataSet[i]);
+//     var numPizzas = this.generateRandom(this.dataSet[i][1],this.dataSet[i][1]);
+//     console.log(numPizzas);
+//     var numDeliveries = this.generateRandom(this.dataSet[i][3],this.dataSet[i][4]);
+//     console.log(numDeliveries);
 //   }
-// };
-
-// Functions to be used in methods
-var generateRandomFunc = function(min,max) {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-};
-
-var calcDriversFunc = function(deliveries) {
-  if (deliveries % 3 === 0) {
-    var drivers = deliveries / 3;
-  } else {
-    var drivers = Math.floor(deliveries/3) + 1
-  }
-  if (drivers === 0) {
-    var driverMsg = 'driver not recommended';
-  } else {
-    var driverMsg = 'drivers recommended: ' + drivers;
-  };
-  return driverMsg;
-};
-
-var listifyFunc = function(ulId) {
-  var totalPizzas = 0;
-  var listLocation = document.getElementById(ulId);
-  var x;
-  for (x in this) {
-    if (typeof(this[x]) === 'object') {
-      var hour = this[x][0];
-      var pizzas = this.generateRandom(this[x][1],this[x][2]);
-      var numDeliveries = this.generateRandom(this[x][3],this[x][4]);
-      var numDrivers = this.calcDrivers(numDeliveries);
-      var liEl = document.createElement('li');
-      liEl.textContent = hour + ' ' + pizzas + ' pizzas, ' + numDeliveries + ' deliveries -- [ ' + numDrivers + ' ]' ;
-      if (listLocation){
-        listLocation.appendChild(liEl);
-      }
-      totalPizzas = totalPizzas + numDeliveries + pizzas;
-    }
-  }
-  return totalPizzas;
-};
-
-// Objects which store data by store
-var ballardData = {
-  t1: ['8:00am', 0, 4,0,4],
-  t2: ['9:00am', 0, 4,0,4],
-  t3: ['10:00am', 0, 4,0,4],
-  t4: ['11:00am', 0, 7,0,4],
-  t5: ['12 noon', 0, 7,0,4],
-  t6: ['1:00pm', 0, 7,0,4],
-  t7: ['2:00pm', 2, 15,1,4],
-  t8: ['3:00pm', 2, 15,1,4],
-  t9: ['4:00pm', 2, 15,1,4],
-  t10: ['5:00pm', 15, 35,3,8],
-  t11: ['6:00pm', 15, 35,3,8],
-  t12: ['7:00pm', 15, 35,3,8],
-  t13: ['8:00pm', 12, 31,5,12],
-  t14: ['9:00pm', 12, 31,5,12],
-  t15: ['10:00pm', 12, 31,5,12],
-  t16: ['11:00pm', 5, 20,6,11],
-  t17: ['12 midnight', 5, 20,6,11],
-  t18: ['1:00am', 5, 20,6,11],
-  generateRandom: generateRandomFunc,
-  calcDrivers: calcDriversFunc,
-  listify: listifyFunc
-};
-
-var firstHillData = {
-  t1: ['8:00am', 0, 4,0,4],
-  t2: ['9:00am', 0, 4,0,4],
-  t3: ['10:00am', 0, 4,0,4],
-  t4: ['11:00am', 0, 7,0,4],
-  t5: ['12 noon', 0, 7,0,4],
-  t6: ['1:00pm', 0, 7,0,4],
-  t7: ['2:00pm', 2, 15,1,4],
-  t8: ['3:00pm', 2, 15,1,4],
-  t9: ['4:00pm', 2, 15,1,4],
-  t10: ['5:00pm', 15, 35,3,8],
-  t11: ['6:00pm', 15, 35,3,8],
-  t12: ['7:00pm', 15, 35,3,8],
-  t13: ['8:00pm', 12, 31,5,12],
-  t14: ['9:00pm', 12, 31,5,12],
-  t15: ['10:00pm', 12, 31,5,12],
-  t16: ['11:00pm', 5, 20,6,11],
-  t17: ['12 midnight', 5, 20,6,11],
-  t18: ['1:00am', 5, 20,6,11],
-  generateRandom: generateRandomFunc,
-  calcDrivers: calcDriversFunc,
-  listify: listifyFunc
-};
-
-var internationalDistData = {
-  t1: ['8:00am', 0, 4,0,4],
-  t2: ['9:00am', 0, 4,0,4],
-  t3: ['10:00am', 0, 4,0,4],
-  t4: ['11:00am', 0, 7,0,4],
-  t5: ['12 noon', 0, 7,0,4],
-  t6: ['1:00pm', 0, 7,0,4],
-  t7: ['2:00pm', 2, 15,1,4],
-  t8: ['3:00pm', 2, 15,1,4],
-  t9: ['4:00pm', 2, 15,1,4],
-  t10: ['5:00pm', 15, 35,3,8],
-  t11: ['6:00pm', 15, 35,3,8],
-  t12: ['7:00pm', 15, 35,3,8],
-  t13: ['8:00pm', 12, 31,5,12],
-  t14: ['9:00pm', 12, 31,5,12],
-  t15: ['10:00pm', 12, 31,5,12],
-  t16: ['11:00pm', 5, 20,6,11],
-  t17: ['12 midnight', 5, 20,6,11],
-  t18: ['1:00am', 5, 20,6,11],
-  generateRandom: generateRandomFunc,
-  calcDrivers: calcDriversFunc,
-  listify: listifyFunc
-};
-
-var sluData = {
-  t1: ['8:00am', 0, 4,0,4],
-  t2: ['9:00am', 0, 4,0,4],
-  t3: ['10:00am', 0, 4,0,4],
-  t4: ['11:00am', 0, 7,0,4],
-  t5: ['12 noon', 0, 7,0,4],
-  t6: ['1:00pm', 0, 7,0,4],
-  t7: ['2:00pm', 2, 15,1,4],
-  t8: ['3:00pm', 2, 15,1,4],
-  t9: ['4:00pm', 2, 15,1,4],
-  t10: ['5:00pm', 15, 35,3,8],
-  t11: ['6:00pm', 15, 35,3,8],
-  t12: ['7:00pm', 15, 35,3,8],
-  t13: ['8:00pm', 12, 31,5,12],
-  t14: ['9:00pm', 12, 31,5,12],
-  t15: ['10:00pm', 12, 31,5,12],
-  t16: ['11:00pm', 5, 20,6,11],
-  t17: ['12 midnight', 5, 20,6,11],
-  t18: ['1:00am', 5, 20,6,11],
-  generateRandom: generateRandomFunc,
-  calcDrivers: calcDriversFunc,
-  listify: listifyFunc
-};
-
-var georgetownData = {
-  t1: ['8:00am', 0, 4,0,4],
-  t2: ['9:00am', 0, 4,0,4],
-  t3: ['10:00am', 0, 4,0,4],
-  t4: ['11:00am', 0, 7,0,4],
-  t5: ['12 noon', 0, 7,0,4],
-  t6: ['1:00pm', 0, 7,0,4],
-  t7: ['2:00pm', 2, 15,1,4],
-  t8: ['3:00pm', 2, 15,1,4],
-  t9: ['4:00pm', 2, 15,1,4],
-  t10: ['5:00pm', 15, 35,3,8],
-  t11: ['6:00pm', 15, 35,3,8],
-  t12: ['7:00pm', 15, 35,3,8],
-  t13: ['8:00pm', 12, 31,5,12],
-  t14: ['9:00pm', 12, 31,5,12],
-  t15: ['10:00pm', 12, 31,5,12],
-  t16: ['11:00pm', 5, 20,6,11],
-  t17: ['12 midnight', 5, 20,6,11],
-  t18: ['1:00am', 5, 20,6,11],
-  generateRandom: generateRandomFunc,
-  calcDrivers: calcDriversFunc,
-  listify: listifyFunc
-};
-
-var ravennaData = {
-  t1: ['8:00am', 0, 4,0,4],
-  t2: ['9:00am', 0, 4,0,4],
-  t3: ['10:00am', 0, 4,0,4],
-  t4: ['11:00am', 0, 7,0,4],
-  t5: ['12 noon', 0, 7,0,4],
-  t6: ['1:00pm', 0, 7,0,4],
-  t7: ['2:00pm', 2, 15,1,4],
-  t8: ['3:00pm', 2, 15,1,4],
-  t9: ['4:00pm', 2, 15,1,4],
-  t10: ['5:00pm', 15, 35,3,8],
-  t11: ['6:00pm', 15, 35,3,8],
-  t12: ['7:00pm', 15, 35,3,8],
-  t13: ['8:00pm', 12, 31,5,12],
-  t14: ['9:00pm', 12, 31,5,12],
-  t15: ['10:00pm', 12, 31,5,12],
-  t16: ['11:00pm', 5, 20,6,11],
-  t17: ['12 midnight', 5, 20,6,11],
-  t18: ['1:00am', 5, 20,6,11],
-  generateRandom: generateRandomFunc,
-  calcDrivers: calcDriversFunc,
-  listify: listifyFunc
-};
-
-// Generate Lists for each data set
-var ballardTotal = ballardData.listify('ballard');
-var firstHillTotal =firstHillData.listify('firsthill');
-var internationalDistTotal = internationalDistData.listify('international-dist');
-var sluTotal = sluData.listify('slu');
-var georgetownTotal = georgetownData.listify('georgetown');
-var ravennaTotal = ravennaData.listify('ravenna');
-
-// console.log('Ballard total ' + ballardTotal);
-// console.log('First Hill total ' + firstHillTotal);
-// console.log('The International District total ' + internationalDistTotal);
-// console.log('South Lake Union total ' + sluTotal);
-// console.log('Georgetown total ' + georgetownTotal);
-// console.log('Ravenna total ' + ravennaTotal);
-
-// Generate Lists for each data set
-var pizzaOdysseys = (ballardTotal + firstHillTotal + internationalDistTotal + sluTotal + georgetownTotal + ravennaTotal) * 6;
-var odysseyLocation = document.getElementById('odysseys');
-
-if (odysseyLocation) {
-  console.log('odyssey location true');
-  odysseyLocation.textContent = pizzaOdysseys;
-}
-
-//Questions for tomorrow:
-// 1. calculating number of drivers based on random number of deliveries could end with lack of drivers, maybe should be based on max?
-// 2. as of now deliveries > # of pizzas....?
-// 3. my functions live outside my object, didn't seem to make sense to store them in object as I couldn't use the benefit of this operators and the like.... also i want to use the same functions across 6 objects.
-// 4. Client Question: Do you deliver pizza's between 2:00 am and 3:00 am or do you close at 2:00?
+//
+// }
+//
+// var ballard = new PizzaShop('Ballard',ballardData);
+//
+// ballard.reportData();
