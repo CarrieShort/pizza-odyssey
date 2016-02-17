@@ -12,6 +12,8 @@ var georgetownData = [[2,7,3,5],[2,7,3,5],[2,7,3,5],[3,8,3,9],[3,8,3,9],[3,8,3,9
 
 var ravennaData = [[0,4,0,4],[0,4,0,4],[0,4,0,4],[0,7,0,4],[0,7,0,4],[0,7,0,4],[2,15,1,4],[2,15,1,4],[2,15,1,4],[6,9,5,18],[6,9,5,18],[6,9,5,18],[4,8,2,5],[4,8,2,5],[4,8,2,5],[2,4,3,11],[2,4,3,11],[2,4,3,11]];
 
+var summaryArray =[];
+
 // cunstructor function
 function PizzaShop(storeLocation,storeData) {
   this.storeLocation = storeLocation;
@@ -51,25 +53,23 @@ PizzaShop.prototype.calcDrivers = function(deliveries) {
   } else {
     var drivers = Math.floor(deliveries/3) + 1
   }
-  if (drivers === 0) {
-    var driverMsg = 'driver not recommended';
-  } else {
-    var driverMsg = 'drivers recommended: ' + drivers;
-  };
-  return driverMsg;
+  // if (drivers === 0) {
+  //   var driverMsg = 'driver not recommended';
+  // } else {
+  //   var driverMsg = 'drivers recommended: ' + drivers;
+  // };
+  // return driverMsg;
+  return drivers;
 }
 
-// build out table and make calculations
-PizzaShop.prototype.reportData = function (){
-  this.modData();
-  var totalPizzas = 0;
-  // Table
-  var tableHeaders = ['Time','Pizzas Sold in Store','Pizzas Delivered','Recommended Drivers'];
-  var contentLocation = document.getElementById('build');
+var buildTable = function (headerArray,buildLocation,summary){
+  var tableHeaders = headerArray;
+  var contentLocation = document.getElementById(buildLocation);
   var paragraph = document.createElement('p');
-  paragraph.textContent = this.storeLocation;
+  paragraph.textContent = summary;
   var table = document.createElement('table');
   var headTR = document.createElement('tr');
+  // table.setAttribute('id', tableID);
 
   if (contentLocation) {
     contentLocation.appendChild(paragraph);
@@ -83,25 +83,68 @@ PizzaShop.prototype.reportData = function (){
     newTH.textContent = tableHeaders[i];
     headTR.appendChild(newTH);
   }
+  return table;
+}
 
+var buildRow = function (tableVar){
+  var row = document.createElement('tr');
+  tableVar.appendChild(row);
+  return row;
+}
+var buildCells = function (rowVar,cellArray){
+  for (var j=0; j < cellArray.length; j++){
+    var cell = document.createElement('td');
+    cell.textContent = cellArray[j];
+    rowVar.appendChild(cell);
+  }
+}
+
+
+// build out table and make calculations
+PizzaShop.prototype.reportData = function (){
+  this.modData();
+  var totalPizzas = 0;
+  var totalStorePizzas = 0;
+  var totalDeliveries = 0;
+  var totalDrivers = 0;
+  // Table
+  // var tableHeaders = ['Time','Pizzas Sold in Store','Pizzas Delivered','Recommended Drivers'];
+  // var contentLocation = document.getElementById('build');
+  // var paragraph = document.createElement('p');
+  // paragraph.textContent = this.storeLocation;
+  // var table = document.createElement('table');
+  // var headTR = document.createElement('tr');
+  //
+  // if (contentLocation) {
+  //   contentLocation.appendChild(paragraph);
+  //   contentLocation.appendChild(table);
+  // }
+  // table.appendChild(headTR);
+  //
+  // //Table Headers
+  // for (var i=0; i < tableHeaders.length; i++) {
+  //   var newTH = document.createElement('th');
+  //   newTH.textContent = tableHeaders[i];
+  //   headTR.appendChild(newTH);
+  // }
+  var table = buildTable(['Time','Pizzas Sold in Store','Pizzas Delivered','Recommended Drivers'],'build',this.storeLocation);
   for (var i=0; i < this.storeData.length; i++){
-    // Table Rows
-    var newTR = document.createElement('tr');
     var numPizzas = this.generateRandom(this.storeData[i][0],this.storeData[i][1]);
     var numDeliveries = this.generateRandom(this.storeData[i][2],this.storeData[i][3]);
     var numDrivers = this.calcDrivers(numDeliveries);
     var tempArray = [this.storeData[i][4],numPizzas,numDeliveries,numDrivers];
-    table.appendChild(newTR);
-    //Table Cells
-    for (var j=0; j < tempArray.length; j++){
-      var newTD = document.createElement('td');
-      newTD.textContent = tempArray[j];
-      newTR.appendChild(newTD);
-    }
+    var newTR = buildRow(table);
+
+    buildCells(newTR, tempArray);
     totalPizzas = totalPizzas + numDeliveries + numPizzas;
+    totalStorePizzas = totalStorePizzas + numPizzas;
+    totalDeliveries = totalDeliveries + numDeliveries;
   }
+  var totalDrivers = Math.ceil(this.calcDrivers(totalDeliveries)/18);
+  summaryArray.push([this.storeLocation,totalStorePizzas,totalDeliveries,totalDrivers]);
   return totalPizzas;
 }
+
 
 //Construct Objects
 var ballard = new PizzaShop('Ballard',ballardData);
@@ -126,4 +169,12 @@ var odysseyLocation = document.getElementById('odysseys');
 // print total to index.html
 if (odysseyLocation) {
   odysseyLocation.textContent = pizzaOdysseys;
+}
+
+var summaryTable = buildTable(['Location','Pizzas','Deliveries','Avg Drivers per Hour'],'summary','A summary of all 3001Pizza Locations');
+console.log(summaryArray);
+for (var i=0; i < summaryArray.length; i++){
+  console.log([i]);
+  var summaryTR = buildRow(summaryTable);
+  buildCells(summaryTR, summaryArray[i]);
 }
