@@ -84,6 +84,7 @@ PizzaShop.prototype.reportData = function (){
 }
 
 //Global Functions
+//Table
 function buildTable (headerArray,buildLocation,summary){
   var tableHeaders = headerArray;
   var contentLocation = document.getElementById(buildLocation);
@@ -106,13 +107,13 @@ function buildTable (headerArray,buildLocation,summary){
   }
   return table;
 }
-
+// Table Row
 function buildRow(tableVar){
   var row = document.createElement('tr');
   tableVar.appendChild(row);
   return row;
 }
-
+// Table Cells
 function buildCells(rowVar,cellArray){
   for (var j=0; j < cellArray.length; j++){
     var cell = document.createElement('td');
