@@ -50,6 +50,26 @@ ul li {
   padding: 5px;
 }
 
+table {
+  background: #efefef;
+  color:#333333;
+  border-collapse: collapse;
+}
+td, th {
+  padding:7px;
+  margin: 0
+}
+th {
+  background: #000000;
+  color: #14CBDB;
+  border:1px solid #333333;
+}
+td {
+  border:1px solid #dddddd;
+}
+tr:hover td{background: #ffffff;}
+
+
 /* Content */
 
 #content {
