@@ -19,25 +19,14 @@ function PizzaShop(storeLocation,storeData) {
   this.storeLocation = storeLocation;
   this.storeData = storeData;
   this.tableHeaders = ['Time','Pizzas Sold in Store','Pizzas Delivered','Recommended Drivers'];
+  this.hoursOfOperation = ['8:00 am','9:00 am','10:00 am','11:00 am','12:00 noon','1:00 pm','2:00 pm','3:00 pm','4:00 pm','5:00 pm','6:00 pm','7:00 pm','8:00 pm','9:00 pm','10:00 pm','11:00 pm','12:00 midnight','1:00 am'];
 }
 
 // extend PizzaShop constructor with methods
 // function to modify storeData arrays by adding time
 PizzaShop.prototype.modData = function() {
   for(var i=0; i < this.storeData.length; i++){
-    var timeNum = (8 + i);
-    if (timeNum < 12) {
-      var timeString = timeNum + ':00 am';
-    } else if(timeNum === 12) {
-      var timeString = timeNum + ':00 noon';
-    } else if(timeNum === 24) {
-      var timeString = (timeNum - 12) + ':00 midnight';
-    } else if (timeNum > 24){
-      var timeString = (timeNum - 24) + ':00 am';
-    } else if (timeNum > 12){
-      var timeString = (timeNum - 12) + ':00 pm';
-    }
-    this.storeData[i].push(timeString);
+    this.storeData[i].push(this.hoursOfOperation[i]);
   }
 };
 
