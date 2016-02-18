@@ -239,6 +239,7 @@ tablify(summaryArray,['Location','Pizzas','Deliveries','Avg Drivers per Hour'],'
 //Variables for event handler
 var createStoreForm = document.getElementById('createStore');
 var addRowForm = document.getElementById('addRow');
+var startNewStore = document.getElementById('done');
 var currentStore;
 // Event handler function
 
@@ -288,3 +289,8 @@ function updateNewStore(event){
 // Event handler
 createStoreForm.addEventListener('submit', handleNewStore);
 addRowForm.addEventListener('submit', updateNewStore);
+
+startNewStore.addEventListener('click', function() {
+  createStoreForm.style.display = 'block';
+  addRowForm.style.display = 'none'
+});
