@@ -81,7 +81,9 @@ PizzaShop.prototype.calcData = function() {
 }
 
 PizzaShop.prototype.reportData = function() {
+  var totals = this.calcData();
   tablify(this.tableData,this.tableHeaders,'build',this.storeLocation);
+  return totals;
 }
 
 function tablify(tableData, tableHeaders,buildLocation,summary){
@@ -123,18 +125,12 @@ var slu = new PizzaShop('South Lake Union',sluData);
 var georgetown = new PizzaShop('Georgetown',georgetownData);
 var ravenna = new PizzaShop('Ravenna',ravennaData);
 // runs functions which print tables and returns and stores total pizzas
-var ballardTotal = ballard.calcData();
-var firstHillTotal = firstHill.calcData();
-var internationalDistTotal = internationalDist.calcData();
-var sluTotal = slu.calcData();
-var georgetownTotal = georgetown.calcData();
-var ravennaTotal = ravenna.calcData();
-ballard.reportData();
-firstHill.reportData();
-internationalDist.reportData();
-slu.reportData();
-georgetown.reportData();
-ravenna.reportData();
+var ballardTotal = ballard.reportData();
+var firstHillTotal = firstHill.reportData();
+var internationalDistTotal = internationalDist.reportData();
+var sluTotal = slu.reportData();
+var georgetownTotal = georgetown.reportData();
+var ravennaTotal = ravenna.reportData();
 // calculate total pizzas per week
 var pizzaOdysseys = (ballardTotal + firstHillTotal + internationalDistTotal + sluTotal + georgetownTotal + ravennaTotal) * 6;
 var odysseyLocation = document.getElementById('odysseys');
