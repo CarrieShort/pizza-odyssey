@@ -251,7 +251,7 @@ function handleNewStore(event){
   var inputDMin = parseInt(event.target.inputDeliveryMin.value);
   var inputDMax = parseInt(event.target.inputDeliveryMax.value);
 
-  if (!inputStore || !inputPMin || !inputPMax || !inputDMin || !inputDMax ) {
+  if (!inputStore || !event.target.inputPizzaMin.value || !event.target.inputPizzaMax.value || !event.target.inputDeliveryMin.value || !event.target.inputDeliveryMax.value ) {
     return alert('Fields cannot be empty!');
   }
 
@@ -270,7 +270,7 @@ function updateNewStore(event){
   var inputDMin = parseInt(event.target.inputDeliveryMin.value);
   var inputDMax = parseInt(event.target.inputDeliveryMax.value);
 
-  if (!inputPMin || !inputPMax || !inputDMin || !inputDMax ) {
+  if (!event.target.inputPizzaMin.value || !event.target.inputPizzaMax.value || !event.target.inputDeliveryMin.value || !event.target.inputDeliveryMax.value ) {
     return alert('Fields cannot be empty!');
   }
 
