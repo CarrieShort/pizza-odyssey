@@ -245,10 +245,10 @@ var currentStore;
 function handleNewStore(event){
   event.preventDefault();
   var inputStore = event.target.inputStoreLoc.value;
-  var inputPMin = event.target.inputPizzaMin.value;
-  var inputPMax = event.target.inputPizzaMax.value;
-  var inputDMin = event.target.inputDeliveryMin.value;
-  var inputDMax = event.target.inputDeliveryMax.value;
+  var inputPMin = parseInt(event.target.inputPizzaMin.value);
+  var inputPMax = parseInt(event.target.inputPizzaMax.value);
+  var inputDMin = parseInt(event.target.inputDeliveryMin.value);
+  var inputDMax = parseInt(event.target.inputDeliveryMax.value);
 
   if (!inputStore || !inputPMin || !inputPMax || !inputDMin || !inputDMax ) {
     return alert('Fields cannot be empty!');
@@ -264,10 +264,10 @@ function handleNewStore(event){
 
 function updateNewStore(event){
   event.preventDefault();
-  var inputPMin = event.target.inputPizzaMin.value;
-  var inputPMax = event.target.inputPizzaMax.value;
-  var inputDMin = event.target.inputDeliveryMin.value;
-  var inputDMax = event.target.inputDeliveryMax.value;
+  var inputPMin = parseInt(event.target.inputPizzaMin.value);
+  var inputPMax = parseInt(event.target.inputPizzaMax.value);
+  var inputDMin = parseInt(event.target.inputDeliveryMin.value);
+  var inputDMax = parseInt(event.target.inputDeliveryMax.value);
 
   if (!inputPMin || !inputPMax || !inputDMin || !inputDMax ) {
     return alert('Fields cannot be empty!');

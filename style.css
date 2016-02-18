@@ -110,6 +110,21 @@ tr:hover td{background: #ffffff;}
 #addRow {
   display: none;
 }
+#formbox {
+  position: fixed; width: 30%;
+  right: 0;
+  top: 0;
+   background: rgba(0, 0, 0, 0.8);
+}
+input {
+  display: block;
+  width: 100%;
+  margin:0 0 10px 0;
+}
+label {
+  display: block;
+}
+form,fieldset {border: none;}
 
 /* Media Queries */
 
