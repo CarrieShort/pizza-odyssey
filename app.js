@@ -23,14 +23,6 @@ function PizzaShop(storeLocation,storeData) {
 }
 
 // extend PizzaShop constructor with methods
-// function to modify storeData arrays by adding time
-PizzaShop.prototype.modData = function() {
-  for(var i=0; i < this.storeData.length; i++){
-    this.storeData[i].push(this.hoursOfOperation[i]);
-  }
-};
-
-
 // generate random function
 PizzaShop.prototype.generateRandom = function(min,max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -47,7 +39,6 @@ PizzaShop.prototype.calcDrivers = function(deliveries) {
 };
 
 PizzaShop.prototype.calcData = function() {
-  this.modData();
   this.tableData = [];
   //Tracking Variables
   var totalPizzas = 0;
@@ -58,7 +49,7 @@ PizzaShop.prototype.calcData = function() {
     var numPizzas = this.generateRandom(this.storeData[i][0],this.storeData[i][1]);
     var numDeliveries = this.generateRandom(this.storeData[i][2],this.storeData[i][3]);
     var numDrivers = this.calcDrivers(numDeliveries);
-    this.tableData.push( [this.storeData[i][4],numPizzas,numDeliveries,numDrivers]);
+    this.tableData.push( [this.hoursOfOperation[i],numPizzas,numDeliveries,numDrivers]);
 
     totalPizzas = totalPizzas + numDeliveries + numPizzas;
     totalStorePizzas = totalStorePizzas + numPizzas;
