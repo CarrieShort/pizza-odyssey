@@ -102,7 +102,14 @@ tr:hover td{background: #ffffff;}
   text-align: center;
 }
 
-#photo img {width: 100%;}
+#photo img {
+  width: 100%;
+}
+
+/* Form */
+#addRow {
+  display: none;
+}
 
 /* Media Queries */
 

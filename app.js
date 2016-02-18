@@ -257,6 +257,8 @@ function handleNewStore(event){
   // new CookieShop(event.target.storeName.value, event.target.min.value, event.target.max.value, event.target.avgCookie.value);
   var initialData = [[inputPMin,inputPMax,inputDMin,inputDMax]];
   currentStore = new PizzaShop(inputStore,initialData);
+  createStoreForm.style.display = 'none';
+  addRowForm.style.display = 'block'
   currentStore.reportData();
 }
 
