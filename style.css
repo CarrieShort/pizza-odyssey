@@ -2,32 +2,49 @@
 @import url(https://fonts.googleapis.com/css?family=Orbitron:400,500,700,900|Droid+Sans:400,700);
 
 /* Grid Layout */
-.column {
-  width: 100%;
+.column-3 {
+  width: 32%;
 }
+
+img {width: 100%;}
 
 .column-2 {
-  width: 48%;
-  float: left;
+  position: relative;
+  width: 49%;
+  min-width: 300px;
+
 }
 
-.column-2.left {
-  margin-right: 2%;
+.column-2 div, .column {
+  background: rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  margin: 10px;
 }
+.content {
+  justify-content:space-between;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 90%;
 
-.column-2.right {
-  margin-left: 2%;
 }
+.column {
+  flex-direction: row;
+justify-content:space-between;
+display: flex;
+flex-wrap: wrap;}
 
-.clearfix {
-  clear: both;
-}
 
 /* General Styles */
 body {
   background: #1F222B;
   color: #ffffff;
   font-family: "Droid Sans", sans-serif;
+  background: url("assets/background.png") no-repeat fixed;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 h1 {
@@ -44,6 +61,7 @@ h2 {
   color: #14CBDB;
   background: #000000;
   padding: 10px;
+  margin: 0;
 }
 
 ul li {
@@ -71,25 +89,19 @@ tr:hover td{background: #ffffff;}
 
 
 /* Content */
-
-#content {
-  background: linear-gradient(to bottom, #e2e2e2 0%,#e2e2e2 47%,#d7e0e3 100%);
-  margin: 0 auto;;
-  width: 80%;
-  max-width: 1200px;
-  min-width: 300px;
-  color: #333333;
-  padding: 30px;
+.full-width {
+  width:100%;
 }
 
-#highlight {
+
+.highlight {
   margin: 0;
-  background:#000000;
   display: block;
   text-align: center;
   padding: 20px 5%;
   border: 1px solid #14CBDB;
   color: #ababab;
+  background: rgba(0, 0, 0, 0.5);
 }
 
 #odysseys {
@@ -98,13 +110,9 @@ tr:hover td{background: #ffffff;}
   color: #14CBDB;
 }
 
-#photo {
-  text-align: center;
-}
+.deal {font-size: 20px; line-height: 40px; font-style: italic;}
 
-#photo img {
-  width: 100%;
-}
+
 
 /* Form */
 #addRow {
@@ -128,11 +136,12 @@ form,fieldset {border: none;}
 
 /* Media Queries */
 
-@media screen and (max-width:600px) {
+@media screen and (max-width:685px) {
   .column-2 {
     width: 100%;
     margin: 0!important;
   }
+  .column-3 {width: 100%;}
 
 }
 
