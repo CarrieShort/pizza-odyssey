@@ -1,0 +1,100 @@
+/* Imports */
+@import url(https://fonts.googleapis.com/css?family=Orbitron:400,500,700,900|Droid+Sans:400,700);
+
+
+
+/* General Styles */
+body {
+  background: #1F222B;
+  color: #ffffff;
+  font-family: "Droid Sans", sans-serif;
+  background: url("assets/background.png") no-repeat fixed;
+
+}
+
+h1, h1 a {
+  font-family: "Orbitron", sans-serif;
+  font-style: italic;
+  text-align: center;
+  color: #000000;
+  text-shadow: 0 0 3px #1AD9DB;
+  font-size: 50px;
+  text-decoration: none;
+}
+
+h2 {
+  font-family: "Orbitron", sans-serif;
+  color: #14CBDB;
+  background: #000000;
+  padding: 10px;
+}
+
+ul li {
+  padding: 5px;
+}
+
+table {
+  background: #efefef;
+  color:#333333;
+  border-collapse: collapse;
+}
+td, th {
+  padding:7px;
+  margin: 0
+}
+th {
+  background: #000000;
+  color: #14CBDB;
+  border:1px solid #333333;
+}
+td {
+  border:1px solid #dddddd;
+}
+tr:hover td{background: #ffffff;}
+
+
+/* Content */
+.full-width {
+  width:100%;
+}
+
+
+.highlight {
+  margin: 0;
+  display: block;
+  text-align: center;
+  padding: 20px 5%;
+  border: 1px solid #14CBDB;
+  color: #ababab;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+#odysseys {
+  font-size: 100px;
+  display: block;
+  color: #14CBDB;
+}
+
+.deal {font-size: 20px; line-height: 40px; font-style: italic;}
+
+
+
+/* Form */
+#addRow {
+  display: none;
+}
+#formbox {
+  position: fixed; width: 30%;
+  right: 0;
+  top: 0;
+   background: rgba(0, 0, 0, 0.8);
+}
+input {
+  display: block;
+  width: 100%;
+  margin:0 0 10px 0;
+}
+label {
+  display: block;
+}
+form,fieldset {border: none;}

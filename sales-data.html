@@ -2,12 +2,15 @@
 <html>
   <head>
     <title>Sales Data Model</title>
-    <link type="text/css" rel="stylesheet" href="style.css" />
+    <link type="text/css" rel="stylesheet" href="sales.css" />
   </head>
   <body>
-    <h2>Add a Store</h2>
+    <div class="header">
+      <h1><a href="index.html">pizza3001</a></h1>
+    </div>
     <div id="formbox">
     <form id="createStore">
+      <h2>Add a Store</h2>
       <fieldset>
         <label for="inputStoreLoc">Store Location</label>
         <input name="inputStoreLoc" type="text">
@@ -30,6 +33,7 @@
       </fieldset>
     </form>
     <form id="addRow">
+      <h2>Add a Row</h2>
       <fieldset>
         <label for="inputPizzaMin">Min Pizzas</label>
         <input name="inputPizzaMin" type="number">
@@ -40,9 +44,10 @@
         <label for="inputDeliveryMax">Max Deliveries</label>
         <input name="inputDeliveryMax" type="number">
         <button type="submit" name="modNewStore">Add New Row</button>
-        <button id="done">Done</button>
+        <button type="button" id="done">Done</button>
       </fieldset>
     </form>
+
   </div>
     <h2>Daily Breakdown by Store</h2>
     <div id="summary"></div>
