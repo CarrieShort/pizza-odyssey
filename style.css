@@ -1,12 +1,10 @@
 /* Imports */
 @import url(https://fonts.googleapis.com/css?family=Orbitron:400,500,700,900|Droid+Sans:400,700);
 
-/* Grid Layout */
+/* Flex */
 .column-3 {
   width: 32%;
 }
-
-img {width: 100%;}
 
 .column-2 {
   position: relative;
@@ -30,7 +28,7 @@ img {width: 100%;}
 
 }
 .column {
-  flex-direction: row;
+flex-direction: row;
 justify-content:space-between;
 display: flex;
 flex-wrap: wrap;}
@@ -68,32 +66,7 @@ ul li {
   padding: 5px;
 }
 
-table {
-  background: #efefef;
-  color:#333333;
-  border-collapse: collapse;
-}
-td, th {
-  padding:7px;
-  margin: 0
-}
-th {
-  background: #000000;
-  color: #14CBDB;
-  border:1px solid #333333;
-}
-td {
-  border:1px solid #dddddd;
-}
-tr:hover td{background: #ffffff;}
-
-
 /* Content */
-.full-width {
-  width:100%;
-}
-
-
 .highlight {
   margin: 0;
   display: block;
@@ -110,29 +83,12 @@ tr:hover td{background: #ffffff;}
   color: #14CBDB;
 }
 
-.deal {font-size: 20px; line-height: 40px; font-style: italic;}
+.deal {
+  font-size: 20px;
+  line-height: 40px;
+  font-style: italic;}
 
-
-
-/* Form */
-#addRow {
-  display: none;
-}
-#formbox {
-  position: fixed; width: 30%;
-  right: 0;
-  top: 0;
-   background: rgba(0, 0, 0, 0.8);
-}
-input {
-  display: block;
-  width: 100%;
-  margin:0 0 10px 0;
-}
-label {
-  display: block;
-}
-form,fieldset {border: none;}
+img {width: 100%;}
 
 /* Media Queries */
 
