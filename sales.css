@@ -54,6 +54,12 @@ tr:hover td{background: #ffffff;}
 
 
 /* Content */
+.homelink {
+  color:#14CBDB;
+}
+.homelink:hover {
+  color: #ffffff;
+}
 .full-width {
   width:100%;
 }

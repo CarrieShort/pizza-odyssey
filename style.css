@@ -39,7 +39,8 @@ body {
   background: #1F222B;
   color: #ffffff;
   font-family: "Droid Sans", sans-serif;
-  background: url("assets/background.png") no-repeat fixed;
+  background:url("assets/background.png") no-repeat fixed;
+  background-size: cover;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
